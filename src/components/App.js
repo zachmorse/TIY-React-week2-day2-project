@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-import logo from "../logo.svg";
 import "../styles/App.css";
 
-const API_KEY = "hyDqMegXSkTyGrRiTig8OId4IuijcF4WoTKGLZdK";
+import GetImageForm from "./GetImageForm";
 
 class App extends Component {
   render() {
-    return <div />;
+    return (
+      <div style={{ textAlign: "center" }}>
+        <h1>Fetch images from the Mars Rover</h1>
+        <GetImageForm />
+      </div>
+    );
   }
 }
 
