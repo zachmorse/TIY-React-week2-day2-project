@@ -1,13 +1,20 @@
 import React, { Component } from "react";
-import "../styles/App.css";
 
 import GetImageForm from "./GetImageForm";
 
 class App extends Component {
   render() {
+    let style = {
+      headerStyle: {
+        textAlign: "center",
+        fontSize: 100,
+        fontWeight: "bold",
+        margin: "2rem 0rem"
+      }
+    };
     return (
-      <div style={{ textAlign: "center" }}>
-        <h1>Fetch images from the Mars Rover</h1>
+      <div>
+        <h1 style={style.headerStyle}>MARS ROVER API</h1>
         <GetImageForm />
       </div>
     );
