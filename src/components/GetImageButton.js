@@ -12,7 +12,7 @@ export default class GetImageButton extends Component {
             backgroundColor: "black",
             color: "rgb(60, 188, 141)",
             padding: "5px 20px",
-            margin: "2rem",
+            margin: "1rem",
             borderRadius: 4,
             fontSize: 20
           }}

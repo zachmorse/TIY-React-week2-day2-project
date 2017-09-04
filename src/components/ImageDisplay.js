@@ -19,14 +19,15 @@ export default class ImageDisplay extends Component {
         maxHeight: 500,
         width: "auto",
         height: "auto",
-        margin: 10
+        margin: 10,
+        boxShadow: "1px 1px 1px 1px solid white"
       },
       divStyle: {
         maxHeight: 510,
         maxWidth: 520,
         display: "flex",
         flexDirection: "row",
-        overflow: "scroll"
+        overflow: "-webkit-paged-x"
       }
     };
 
@@ -37,7 +38,7 @@ export default class ImageDisplay extends Component {
       key++;
       return (
         <div key={key}>
-          <a href={images.img_src}>
+          <a href={images.img_src} target="_blank" rel="noopener noreferrer">
             <img
               src={images.img_src}
               alt="mars rover"

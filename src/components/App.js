@@ -9,7 +9,7 @@ class App extends Component {
         textAlign: "center",
         fontSize: 100,
         fontWeight: "bold",
-        margin: "2rem 0rem"
+        margin: "0rem"
       }
     };
     return (

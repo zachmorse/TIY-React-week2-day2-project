@@ -44,7 +44,6 @@ export default class GetImageForm extends Component {
       })
       .then(data => {
         this.setState({ images: data.photos });
-        console.log(this.state.images);
       });
   };
 
