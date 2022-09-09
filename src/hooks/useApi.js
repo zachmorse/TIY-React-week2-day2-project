@@ -1,4 +1,4 @@
-import { useEffect, useState, useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 import { FETCH_INITIATE, FETCH_SUCCESS, FETCH_ERROR, INITIAL_STATE } from '../reducers/apiReducer'
 
 const API_KEY = 'hyDqMegXSkTyGrRiTig8OId4IuijcF4WoTKGLZdK'

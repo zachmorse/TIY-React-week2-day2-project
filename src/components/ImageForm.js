@@ -14,14 +14,14 @@ const style = {
     },
 }
 
-const GetImageForm = ({ rover, setRover, camera, setCamera, sol, setSol }) => {
+const ImageForm = ({ rover, camera, sol, handleUpdate }) => {
     return (
         <div>
             <form style={style.formStyle}>
                 <label style={style.labelStyle} htmlFor='rover'>
                     Rover
                 </label>
-                <select style={style.selectStyle} onChange={e => setRover(e.target.value)} value={rover}>
+                <select style={style.selectStyle} onChange={e => handleUpdate('rover', e.target.value)} value={rover}>
                     <option value='Curiosity'>Curiosity</option>
                     <option value='Opportunity'>Opportunity</option>
                     <option value='Spirit'>Spirit</option>
@@ -29,7 +29,7 @@ const GetImageForm = ({ rover, setRover, camera, setCamera, sol, setSol }) => {
                 <label style={style.labelStyle} htmlFor='camera'>
                     Camera Type
                 </label>
-                <select style={style.selectStyle} onChange={e => setCamera(e.target.value)} value={camera}>
+                <select style={style.selectStyle} onChange={e => handleUpdate('camera', e.target.value)} value={camera}>
                     <option value='fhaz'>FHAZ (Front Hazard)</option>
                     <option value='rhaz'>RHAZ (Rear Hazard)</option>
                     <option value='navcam'>NAVCAM (Navigation Cam)</option>
@@ -40,7 +40,7 @@ const GetImageForm = ({ rover, setRover, camera, setCamera, sol, setSol }) => {
                 <input
                     style={style.selectStyle}
                     type='number'
-                    onChange={e => setSol(e.target.value)}
+                    onChange={e => handleUpdate('sol', e.target.value)}
                     max={2000}
                     min={1000}
                     value={sol}
@@ -50,4 +50,4 @@ const GetImageForm = ({ rover, setRover, camera, setCamera, sol, setSol }) => {
     )
 }
 
-export default GetImageForm
+export default ImageForm

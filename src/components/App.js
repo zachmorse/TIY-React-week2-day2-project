@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useReducer } from 'react'
 import { useDebounce } from 'use-debounce'
-import GetImageForm from './GetImageForm'
+import ImageForm from './ImageForm'
 import ImageDisplay from './ImageDisplay'
 
 import { useApi } from '../hooks/useApi'
 import { apiReducer } from '../reducers/apiReducer'
+import { appReducer, INITIAL_APP_STATE, UPDATE_STATE } from '../reducers/appReducer'
 
 const style = {
     headerStyle: {
@@ -16,24 +17,17 @@ const style = {
 }
 
 const App = () => {
-    const [rover, setRover] = useState('Curiosity')
-    const [camera, setCamera] = useState('FHAZ')
-    const [sol, setSol] = useState(1000)
-    const [debouncedSolValue] = useDebounce(sol, 1000)
-
+    const [state, dispatch] = useReducer(appReducer, INITIAL_APP_STATE)
+    const { rover, camera, sol } = state
+    const [debouncedSolValue] = useDebounce(sol, 250)
     const { images, loading, error, errorMessage } = useApi(rover, camera, debouncedSolValue, apiReducer)
+
+    const handleUpdate = (key, payload) => dispatch({ type: UPDATE_STATE, key, payload })
 
     return (
         <div>
             <h1 style={style.headerStyle}>MARS ROVER API</h1>
-            <GetImageForm
-                rover={rover}
-                setRover={setRover}
-                camera={camera}
-                setCamera={setCamera}
-                sol={sol}
-                setSol={setSol}
-            />
+            <ImageForm rover={state.rover} camera={state.camera} sol={state.sol} handleUpdate={handleUpdate} />
             <ImageDisplay images={images} loading={loading} error={error} errorMessage={errorMessage} />
         </div>
     )
