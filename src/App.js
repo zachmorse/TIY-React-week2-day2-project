@@ -1,11 +1,11 @@
 import React, { useReducer } from 'react'
 import { useDebounce } from 'use-debounce'
-import ImageForm from './ImageForm'
-import ImageDisplay from './ImageDisplay'
+import ImageForm from './components/ImageForm'
+import ImageDisplay from './components/ImageDisplay'
 
-import { useApi } from '../hooks/useApi'
-import { apiReducer } from '../reducers/apiReducer'
-import { appReducer, INITIAL_APP_STATE, UPDATE_STATE } from '../reducers/appReducer'
+import { useApi } from './hooks/useApi'
+import { apiReducer } from './reducers/apiReducer'
+import { appReducer, INITIAL_APP_STATE, UPDATE_STATE } from './reducers/appReducer'
 
 const style = {
     headerStyle: {
