@@ -4,6 +4,7 @@ import GetImageForm from './GetImageForm'
 import ImageDisplay from './ImageDisplay'
 
 import { useApi } from '../hooks/useApi'
+import { apiReducer } from '../reducers/apiReducer'
 
 const style = {
     headerStyle: {
@@ -20,9 +21,7 @@ const App = () => {
     const [sol, setSol] = useState(1000)
     const [debouncedSolValue] = useDebounce(sol, 1000)
 
-    const { hookImages, loading } = useApi(rover, camera, debouncedSolValue)
-
-    console.log(sol)
+    const { images, loading, error, errorMessage } = useApi(rover, camera, debouncedSolValue, apiReducer)
 
     return (
         <div>
@@ -35,7 +34,7 @@ const App = () => {
                 sol={sol}
                 setSol={setSol}
             />
-            <ImageDisplay images={hookImages} loading={loading} />
+            <ImageDisplay images={images} loading={loading} error={error} errorMessage={errorMessage} />
         </div>
     )
 }
